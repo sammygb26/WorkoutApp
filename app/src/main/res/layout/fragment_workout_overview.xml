@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.workout.WorkoutOverviewFragment">
+
+    <data>
+        <variable
+            name="workoutStartFragment"
+            type="com.example.workoutapp.ui.workout.WorkoutOverviewFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.workoutapp.model.workout.WorkoutViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageButton
+            android:src="@drawable/ic_edit"
+            android:contentDescription="@string/edit"
+            android:onClick="@{() -> workoutStartFragment.toEditWorkout()}"
+            app:tint="?attr/colorOnBackground"
+            android:layout_margin="@dimen/top_left_icon_margin"
+            android:background="@null"
+            android:color="@color/dark_gray"
+            android:layout_width="@dimen/top_left_icon_size"
+            android:layout_height="@dimen/top_left_icon_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:text="@{viewModel.workoutName}"
+            android:layout_marginTop="@dimen/name_top_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            style="?attr/textAppearanceHeadline4"
+            tools:text="Workout Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/back_button"
+            android:text="@string/back"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/startButton"/>
+
+        <Button
+            android:text="@string/start"
+            android:id="@+id/startButton"
+            android:onClick="@{() -> workoutStartFragment.toNextSection()}"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.workout.WorkoutCheckFragment">
+
+    <data>
+        <variable
+            name="workoutCheckFragment"
+            type="com.example.workoutapp.ui.workout.WorkoutCheckFragment" />
+        <variable
+            name="viewModel"
+            type="com.example.workoutapp.model.workout.WorkoutViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/workout_progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="3600"
+            android:progress="@{viewModel.workoutProgress}"
+            android:progressDrawable="@drawable/progress_bar_background"
+            tools:progress="300"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:src="@drawable/ic_cancel"
+            android:onClick="@{() -> workoutCheckFragment.cancel()}"
+            android:contentDescription="@string/cancel"
+            app:tint="?attr/colorOnBackground"
+            android:layout_margin="@dimen/top_left_icon_margin"
+            android:background="@null"
+            android:color="@color/dark_gray"
+            android:layout_width="@dimen/top_left_icon_size"
+            android:layout_height="@dimen/top_left_icon_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/workout_progress_bar"/>
+
+        <TextView
+            android:id="@+id/section_name_text"
+            android:text="@{viewModel.currentSection.name}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/name_top_margin"
+            tools:text="Section Name"
+            style="?attr/textAppearanceHeadline4"
+            app:layout_constraintTop_toBottomOf="@id/workout_progress_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/quantified_string_text"
+            style="?attr/textAppearanceHeadline5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.currentSection.formattedNumber}"
+            app:layout_constraintTop_toBottomOf="@id/section_name_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/description_text"
+            tools:text="Quantified string" />
+
+        <TextView
+            android:id="@+id/description_text"
+            android:text="@{viewModel.currentSection.description}"
+            android:layout_width="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_height="wrap_content"
+            tools:text="This is a description of the workout that will be provided by the section object."
+            app:layout_constraintBottom_toTopOf="@id/button_next"
+            app:layout_constraintTop_toBottomOf="@id/quantified_string_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <Button
+            android:id="@+id/button_next"
+            android:onClick="@{() -> workoutCheckFragment.toNextSection()}"
+            android:text="@string/next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_previous"/>
+
+        <Button
+            android:id="@+id/button_previous"
+            android:onClick="@{() -> workoutCheckFragment.toPreviousSection()}"
+            android:text="@string/previous"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            android:enabled="@{viewModel.getWorkoutPosition() != 0}"
+            style="?attr/materialButtonOutlinedStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_next"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

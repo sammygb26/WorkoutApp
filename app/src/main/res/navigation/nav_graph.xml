@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.workoutapp.ui.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_workoutOverviewFragment"
+            app:destination="@id/workoutOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutOverviewFragment"
+        android:name="com.example.workoutapp.ui.workout.WorkoutOverviewFragment"
+        android:label="fragment_workout_start"
+        tools:layout="@layout/fragment_workout_overview" >
+        <action
+            android:id="@+id/action_workoutOverviewFragment_to_editWorkoutFragment"
+            app:destination="@id/editWorkoutFragment" />
+        <action
+            android:id="@+id/action_workoutOverviewFragment_to_workoutTimerFragment"
+            app:destination="@id/workoutTimerFragment" />
+        <action
+            android:id="@+id/action_workoutOverviewFragment_to_workoutCheckFragment"
+            app:destination="@id/workoutCheckFragment" />
+        <action
+            android:id="@+id/action_workoutOverviewFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutTimerFragment"
+        android:name="com.example.workoutapp.ui.workout.WorkoutTimerFragment"
+        android:label="fragment_workout_timer"
+        tools:layout="@layout/fragment_workout_timer" >
+        <action
+            android:id="@+id/action_workoutTimerFragment_to_workoutCheckFragment"
+            app:destination="@id/workoutCheckFragment" />
+        <action
+            android:id="@+id/action_workoutTimerFragment_self"
+            app:destination="@id/workoutTimerFragment" />
+        <action
+            android:id="@+id/action_workoutTimerFragment_to_workoutOverviewFragment"
+            app:destination="@id/workoutOverviewFragment"
+            app:popUpTo="@id/workoutOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutCheckFragment"
+        android:name="com.example.workoutapp.ui.workout.WorkoutCheckFragment"
+        android:label="fragment_workout_check"
+        tools:layout="@layout/fragment_workout_check" >
+        <action
+            android:id="@+id/action_workoutCheckFragment_to_workoutTimerFragment"
+            app:destination="@id/workoutTimerFragment" />
+        <action
+            android:id="@+id/action_workoutCheckFragment_self"
+            app:destination="@id/workoutCheckFragment" />
+        <action
+            android:id="@+id/action_workoutCheckFragment_to_workoutOverviewFragment"
+            app:destination="@id/workoutOverviewFragment"
+            app:popUpTo="@id/workoutOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWorkoutFragment"
+        android:name="com.example.workoutapp.ui.edit.EditWorkoutFragment"
+        android:label="EditWorkoutFragment" >
+        <action
+            android:id="@+id/action_editWorkoutFragment_to_workoutOverviewFragment"
+            app:destination="@id/workoutOverviewFragment" />
+        <action
+            android:id="@+id/action_editWorkoutFragment_to_editSectionFragment"
+            app:destination="@id/editSectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editSectionFragment"
+        android:name="com.example.workoutapp.ui.edit.EditSectionFragment"
+        android:label="fragment_edit_section"
+        tools:layout="@layout/fragment_edit_section" >
+        <action
+            android:id="@+id/action_editSectionFragment_to_editWorkoutFragment"
+            app:destination="@id/editWorkoutFragment"
+            app:popUpTo="@id/editWorkoutFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/drawable/add.xml" value="0.1" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_section.xml" value="0.3567708333333333" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_workout.xml" value="0.1" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_start.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/circular_timer.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/ic_save.xml" value="0.1325" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/progress_bar_background.xml" value="0.1" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/timer_background.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/timer_progress.xml" value="0.3212962962962963" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_edit_workout.xml" value="0.29791666666666666" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_rest_timer.xml" value="0.20588235294117646" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_start.xml" value="0.2" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_workout_check.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_workout_end.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_workout_overview.xml" value="0.2" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_workout_start.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/fragment_workout_timer.xml" value="0.264" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/section_list_item.xml" value="0.29791666666666666" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/layout/workout_list_item.xml" value="0.2" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/menu/edit_workout_menu.xml" value="0.2" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/menu/start_menu.xml" value="0.16041666666666668" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
