@@ -30,7 +30,7 @@ class EditWorkoutFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentEditWorkoutBinding.inflate(inflater, container, false)
 
         menuProvider = object : MenuProvider {
@@ -39,8 +39,7 @@ class EditWorkoutFragment : Fragment() {
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                val id = menuItem.itemId
-                when (id) {
+                when (menuItem.itemId) {
                     R.id.action_save -> {
                         editViewModel.saveWorkout()
                         workoutViewModel.startWorkout(editViewModel.workout!!)
@@ -51,19 +50,37 @@ class EditWorkoutFragment : Fragment() {
                 return true
             }
         }
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         requireActivity().title = "Edit"
         requireActivity().addMenuProvider(menuProvider)
-
 
         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar!!
         supportActionBar.setDisplayShowHomeEnabled(true)
         supportActionBar.setDisplayHomeAsUpEnabled(true)
 
-        return binding.root
+
+        binding.recycleView.adapter = EditWorkoutAdapter(editViewModel)
+        binding.recycleView.layoutManager = LinearLayoutManager(context)
+        binding.editWorkoutFragment = this
+
+        ItemTouchHelper(ReorderHelperCallback(
+            EditWorkoutReorderHelperCallback(editViewModel)
+        ))
+            .attachToRecyclerView(binding.recycleView)
     }
 
     private fun goToHome() {
         findNavController().navigate(R.id.action_editWorkoutFragment_to_workoutOverviewFragment)
+    }
+
+    fun goToEditSection() {
+        findNavController().navigate(R.id.action_editWorkoutFragment_to_editSectionFragment)
     }
 
     override fun onDestroyView() {
@@ -75,17 +92,5 @@ class EditWorkoutFragment : Fragment() {
 
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.recycleView.adapter = EditWorkoutAdapter(editViewModel)
-        binding.recycleView.layoutManager = LinearLayoutManager(context)
-
-        ItemTouchHelper(ReorderHelperCallback(
-            EditWorkoutReorderHelperCallback(editViewModel)
-        ))
-            .attachToRecyclerView(binding.recycleView)
     }
 }

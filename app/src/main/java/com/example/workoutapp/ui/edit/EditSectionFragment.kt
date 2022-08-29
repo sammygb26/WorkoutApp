@@ -9,7 +9,7 @@ import com.example.workoutapp.databinding.FragmentEditSectionBinding
 
 class EditSectionFragment : Fragment(){
     private var _binding: FragmentEditSectionBinding? = null
-    private val binding = _binding!!
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,6 +18,10 @@ class EditSectionFragment : Fragment(){
     ): View {
         _binding = FragmentEditSectionBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {
