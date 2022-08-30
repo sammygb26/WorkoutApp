@@ -2,11 +2,9 @@ package com.example.workoutapp.ui.edit
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -15,6 +13,7 @@ import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentEditWorkoutBinding
 import com.example.workoutapp.model.edit.EditViewModel
 import com.example.workoutapp.model.edit.EditWorkoutReorderHelperCallback
+import com.example.workoutapp.model.workout.WorkoutSection
 import com.example.workoutapp.model.workout.WorkoutViewModel
 import com.example.workoutapp.ui.reorder.ReorderHelperCallback
 
@@ -79,7 +78,9 @@ class EditWorkoutFragment : Fragment() {
         findNavController().navigate(R.id.action_editWorkoutFragment_to_workoutOverviewFragment)
     }
 
-    fun goToEditSection() {
+    fun addNewSection() {
+        val section = WorkoutSection()
+        editViewModel.initializeSectionEdit(section)
         findNavController().navigate(R.id.action_editWorkoutFragment_to_editSectionFragment)
     }
 

@@ -4,12 +4,12 @@ data class WorkoutSection(
     var name: String = "",
     var type: WorkoutSectionType = WorkoutSectionType.CHECK,
     var number: Int = 0,
-    var numberFormatString : String = "",
+    var formatString : String = "",
     var description: String = "",
     ) {
 
     fun getFormattedNumber() : String {
-        return numberFormatString.format(number)
+        return formatString.format(number)
     }
 }
 

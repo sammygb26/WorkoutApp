@@ -6,6 +6,7 @@ import com.example.workoutapp.data.WorkoutDataSource
 import com.example.workoutapp.data.WorkoutFileSystemManager
 import com.example.workoutapp.model.workout.Workout
 import com.example.workoutapp.model.workout.WorkoutSection
+import com.example.workoutapp.model.workout.WorkoutSectionType
 
 class EditViewModel : ViewModel(){
 
@@ -22,9 +23,37 @@ class EditViewModel : ViewModel(){
         this.section = section
     }
 
+    fun appendCurrentSection() : Boolean {
+        if (section != null && workout != null) {
+            workout!!.sections.add(section!!)
+            return true
+        }
+        return false
+    }
+
+    fun setSectionName(name: String) {
+        section!!.name = name
+    }
+
+    fun setSectionDescription(description: String) {
+        section!!.description = description
+    }
+
+    fun setSectionNumber(number: Int) {
+        section!!.number = number
+    }
+
+    fun setSectionType(type: WorkoutSectionType) {
+        section!!.type = type
+    }
+
     fun getWorkoutSections() = workout!!.sections
 
     fun saveWorkout() {
         workoutFileSystemManager!!.writeWorkout(workout!!)
+    }
+
+    fun setFormatString(formatString: String) {
+        section!!.formatString = formatString
     }
 }

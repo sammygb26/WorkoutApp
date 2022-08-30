@@ -7,7 +7,7 @@ import com.example.workoutapp.model.workout.WorkoutSectionType
 object WorkoutDataSource {
     val basicWorkout get() = Workout(
         "Simple Workout (Push-ups)",
-        listOf(
+        mutableListOf(
             WorkoutSection(
                 "Run to pull up bar",
                 WorkoutSectionType.CHECK,

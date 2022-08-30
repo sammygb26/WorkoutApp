@@ -2,7 +2,7 @@ package com.example.workoutapp.model.workout
 
 data class Workout(
     var name: String,
-    var sections: List<WorkoutSection> = listOf(),
+    var sections: MutableList<WorkoutSection> = mutableListOf(),
     var description : String = "",
     ) {
 

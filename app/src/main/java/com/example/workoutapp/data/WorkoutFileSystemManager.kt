@@ -12,7 +12,6 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 import java.lang.IllegalStateException
-import java.util.*
 
 class WorkoutFileSystemManager(val context: Context) {
 
@@ -35,7 +34,7 @@ class WorkoutFileSystemManager(val context: Context) {
             serializerWriteField(serializer, "name", section.name)
             serializerWriteField(serializer, "type", section.type.toString())
             serializerWriteField(serializer, "number", section.number.toString())
-            serializerWriteField(serializer, "numberFormatString", section.numberFormatString)
+            serializerWriteField(serializer, "numberFormatString", section.formatString)
             serializerWriteField(serializer, "description", section.description)
 
             serializer.endTag(null, "section")
@@ -110,7 +109,7 @@ class WorkoutFileSystemManager(val context: Context) {
         return description
     }
 
-    private fun readSections(parser: XmlPullParser): List<WorkoutSection> {
+    private fun readSections(parser: XmlPullParser): MutableList<WorkoutSection> {
         val sections : MutableList<WorkoutSection> = mutableListOf()
         parser.require(XmlPullParser.START_TAG, null, "sections")
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -138,7 +137,7 @@ class WorkoutFileSystemManager(val context: Context) {
                 "name" -> section.name = readName(parser)
                 "type" -> section.type = readType(parser)
                 "number" -> section.number = readNumber(parser)
-                "numberFormatString" -> section.numberFormatString = readNumberFormatString(parser)
+                "numberFormatString" -> section.formatString = readNumberFormatString(parser)
                 "description" -> section.description = readDescription(parser)
                 else -> skip(parser)
             }

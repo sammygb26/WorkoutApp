@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.example.workoutapp.model.edit.EditViewModel" />
+            name="editSectionFragment"
+            type="com.example.workoutapp.ui.edit.EditSectionFragment" />
     </data>
 
     <ScrollView
@@ -81,12 +81,24 @@
                 app:layout_constraintTop_toBottomOf="@id/minutesEditText" />
 
             <EditText
+                android:id="@+id/formatStringEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/format_string"
+                app:layout_constraintTop_toBottomOf="@id/countEditText"
+                app:layout_constraintStart_toStartOf="@+id/countEditText"
+                app:layout_constraintEnd_toEndOf="@id/nameEditText"
+                android:autofillHints="Add a number format string (anywhere you want the number add %s)."
+                android:inputType="text" />
+
+            <EditText
                 android:id="@+id/descriptionEditText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/description"
-                app:layout_constraintTop_toBottomOf="@id/countEditText"
+                app:layout_constraintTop_toBottomOf="@id/formatStringEditText"
                 app:layout_constraintStart_toStartOf="@+id/countEditText"
                 app:layout_constraintEnd_toEndOf="@id/nameEditText"
                 android:autofillHints="Description of the workout section."
@@ -108,6 +120,7 @@
 
             <Button
                 android:id="@+id/addButton"
+                android:onClick="@{() -> editSectionFragment.addSectionToWorkout()}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
