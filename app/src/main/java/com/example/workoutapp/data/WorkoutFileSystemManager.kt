@@ -41,6 +41,9 @@ class WorkoutFileSystemManager(val context: Context) {
         }
 
         serializer.endTag(null, "sections")
+
+        serializerWriteField(serializer, "sectionOrder", workout.sectionOrder.toString())
+
         serializer.endTag(null, "workout")
 
         serializer.endDocument()
@@ -88,11 +91,26 @@ class WorkoutFileSystemManager(val context: Context) {
             when (parser.name) {
                 "description" -> workout.description = readDescription(parser)
                 "sections" -> workout.sections = readSections(parser)
+                "sectionOrder" -> workout.sectionOrder = readSectionOrder(parser)
                 else -> skip(parser)
             }
         }
 
         return workout
+    }
+
+    private fun readSectionOrder(parser: XmlPullParser): MutableList<Int> {
+        parser.require(XmlPullParser.START_TAG, null, "sectionOrder")
+        val orderString = readText(parser).removePrefix("[").removeSuffix("]")
+        val order = orderString.split(",").map {
+            try {
+            it.removePrefix(" ").toInt()
+            } catch (e: Exception) {
+                0
+            }
+        }
+        parser.require(XmlPullParser.END_TAG, null, "sectionOrder")
+        return order.toMutableList()
     }
 
     private fun readName(parser: XmlPullParser) : String {
@@ -166,9 +184,9 @@ class WorkoutFileSystemManager(val context: Context) {
 
     private fun readNumberFormatString(parser: XmlPullParser) : String {
         parser.require(XmlPullParser.START_TAG, null, "numberFormatString")
-        val numberFOrmatString = readText(parser)
+        val numberFormatString = readText(parser)
         parser.require(XmlPullParser.END_TAG, null, "numberFormatString")
-        return numberFOrmatString
+        return numberFormatString
     }
 
     private fun readText(parser: XmlPullParser): String {

@@ -13,7 +13,7 @@ class EditWorkoutAdapter(
 ) : RecyclerView.Adapter<EditWorkoutViewHolder>(){
 
     override fun getItemCount(): Int {
-        return sharedViewModel.getWorkoutSections().size
+        return sharedViewModel.workout!!.length
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): EditWorkoutViewHolder {
@@ -23,13 +23,13 @@ class EditWorkoutAdapter(
         val section: WorkoutSection = sharedViewModel.workout!!.getSection(position)!!
         val holder = EditWorkoutViewHolder(binding)
 
-        holder.binding.sectionNameText.text = section.name
+        holder.bind(section)
 
         return holder
     }
 
     override fun onBindViewHolder(holder: EditWorkoutViewHolder, position: Int) {
         val section: WorkoutSection = sharedViewModel.workout!!.getSection(position)!!
-        holder.binding.sectionNameText.text = section.name
+        holder.bind(section)
     }
 }

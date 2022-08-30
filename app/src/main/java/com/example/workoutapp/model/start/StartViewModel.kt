@@ -28,11 +28,10 @@ class StartViewModel : ViewModel(){
     }
 
     fun loadWorkouts(context: Context) {
-        val basicWorkout = WorkoutDataSource.basicWorkout
-        workoutNames = mutableListOf(basicWorkout.name)
-        workouts[basicWorkout.name] = basicWorkout
-        return
         val workoutFileSystemManager = WorkoutFileSystemManager(context)
+        workoutFileSystemManager.writeWorkout(
+            WorkoutDataSource.basicWorkout
+        )
         workoutNames = workoutFileSystemManager.workoutNames.toMutableList()
 
         workouts.clear()
@@ -43,7 +42,7 @@ class StartViewModel : ViewModel(){
 
         if (workouts.isEmpty()) {
             workoutFileSystemManager.writeWorkout(
-                WorkoutDataSource.basicWorkout,
+                WorkoutDataSource.basicWorkout
             )
             loadWorkouts(context)
         }

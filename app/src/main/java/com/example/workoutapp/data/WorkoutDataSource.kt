@@ -16,7 +16,7 @@ object WorkoutDataSource {
                 "Try to keep the pace up and not stop between push-ups."
             ),
             WorkoutSection(
-                "Push-ups",
+                "Rest",
                 WorkoutSectionType.TIMER,
                 60,
                 "",

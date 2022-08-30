@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentEditWorkoutBinding
 import com.example.workoutapp.model.edit.EditViewModel
-import com.example.workoutapp.model.edit.EditWorkoutReorderHelperCallback
 import com.example.workoutapp.model.workout.WorkoutSection
 import com.example.workoutapp.model.workout.WorkoutViewModel
 import com.example.workoutapp.ui.reorder.ReorderHelperCallback
