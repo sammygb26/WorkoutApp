@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/drawable/add.xml" value="0.1" />
-        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_section.xml" value="0.34054054054054056" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_section.xml" value="0.7152777777777778" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_workout.xml" value="0.1" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_start.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/menu/edit_workout_menu.xml" value="0.2" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/circular_timer.xml" value="0.264" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp2/app/src/main/res/drawable/ic_save.xml" value="0.1325" />

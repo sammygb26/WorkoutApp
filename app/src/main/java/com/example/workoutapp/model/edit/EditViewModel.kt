@@ -11,10 +11,15 @@ class EditViewModel : ViewModel(){
 
     private var workoutFileSystemManager : WorkoutFileSystemManager? = null
     var workout : Workout? = null
+    var section : WorkoutSection? = null
 
-    fun initializeEdit(context: Context, workoutName: String) {
+    fun initializeWorkoutEdit(context: Context, workoutName: String) {
         workoutFileSystemManager = WorkoutFileSystemManager(context)
         workout = workoutFileSystemManager!!.readWorkout(workoutName)
+    }
+
+    fun initializeSectionEdit(section: WorkoutSection) {
+        this.section = section
     }
 
     fun getWorkoutSections() = workout!!.sections

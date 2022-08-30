@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentWorkoutOverviewBinding
@@ -55,7 +54,7 @@ class WorkoutOverviewFragment: Fragment() {
     }
 
     fun toEditWorkout() {
-        editViewModel.initializeEdit(requireContext(), workoutViewModel.workoutName)
+        editViewModel.initializeWorkoutEdit(requireContext(), workoutViewModel.workoutName)
         findNavController().navigate(R.id.action_workoutOverviewFragment_to_editWorkoutFragment)
     }
 }
