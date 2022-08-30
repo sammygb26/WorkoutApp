@@ -6,14 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.databinding.SectionListItemBinding
 import com.example.workoutapp.model.edit.EditViewModel
 
-class EditWorkoutSectionsAdapter(val sharedViewModel: EditViewModel) : RecyclerView.Adapter<EditWorkoutSectionsViewHolder>(){
+class EditWorkoutSectionsAdapter(
+    private val sharedViewModel: EditViewModel,
+    private val editWorkoutSectionsFragment: EditWorkoutSectionsFragment
+    ) : RecyclerView.Adapter<EditWorkoutSectionsViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): EditWorkoutSectionsViewHolder {
         val binding = SectionListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return EditWorkoutSectionsViewHolder(binding)
+        return EditWorkoutSectionsViewHolder(binding, editWorkoutSectionsFragment)
     }
 
     override fun onBindViewHolder(holder: EditWorkoutSectionsViewHolder, position: Int) {

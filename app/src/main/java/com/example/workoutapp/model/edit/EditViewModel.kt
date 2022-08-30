@@ -23,6 +23,14 @@ class EditViewModel : ViewModel(){
         this.section = section
     }
 
+    fun appendSectionToOrder(sectionName: String) {
+        for (i in workout!!.sections.indices) {
+            if (workout!!.sections[i].name == sectionName) {
+                workout!!.sectionOrder.add(i)
+            }
+        }
+    }
+
     fun appendCurrentSection() : Boolean {
         if (section != null && workout != null) {
             workout!!.sections.add(section!!)
