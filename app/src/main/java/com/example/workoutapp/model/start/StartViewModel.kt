@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.workoutapp.data.WorkoutDataSource
 import com.example.workoutapp.data.WorkoutFileSystemManager
 import com.example.workoutapp.model.workout.Workout
+import com.example.workoutapp.model.workout.WorkoutSection
 
 class StartViewModel : ViewModel(){
     var workoutNames = mutableListOf<String>()
@@ -27,6 +28,10 @@ class StartViewModel : ViewModel(){
     }
 
     fun loadWorkouts(context: Context) {
+        val basicWorkout = WorkoutDataSource.basicWorkout
+        workoutNames = mutableListOf(basicWorkout.name)
+        workouts[basicWorkout.name] = basicWorkout
+        return
         val workoutFileSystemManager = WorkoutFileSystemManager(context)
         workoutNames = workoutFileSystemManager.workoutNames.toMutableList()
 

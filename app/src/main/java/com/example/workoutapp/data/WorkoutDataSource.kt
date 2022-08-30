@@ -9,140 +9,21 @@ object WorkoutDataSource {
         "Simple Workout (Push-ups)",
         mutableListOf(
             WorkoutSection(
-                "Run to pull up bar",
+                "Push-ups",
                 WorkoutSectionType.CHECK,
-                0,
-                "Run to pull up bar in the meadows.",
-                "This works as a good warm up. Make sure to run the long way around trying not to stop at all."
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
             ),
             WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-            "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
+                "Push-ups",
                 WorkoutSectionType.TIMER,
                 60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Run",
-                WorkoutSectionType.CHECK,
-                0,
-                "Run usual route around hollyrood and back to pull-up bar."
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
-            ),
-            WorkoutSection(
-                "Pull-ups",
-                WorkoutSectionType.CHECK,
-                8,
-                "%s pull-ups"
-            ),
-            WorkoutSection(
-                "Rest",
-                WorkoutSectionType.TIMER,
-                60,
+                "",
+                "Rest now, but try to keep moving."
             ),
         ),
+        mutableListOf(1,2,1,2,1,2,1,2,1,2),
         "Basic workout involving different types of activies."
     )
 }
