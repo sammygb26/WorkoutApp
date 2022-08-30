@@ -38,12 +38,14 @@ class EditWorkoutFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
-                    R.id.action_save -> {
+                    R.id.action_cancel -> { //TODO: swap save and cancel actions
+                        goToHome()
+                    }
+                    else -> {
                         editViewModel.saveWorkout()
                         workoutViewModel.startWorkout(editViewModel.workout!!)
-                    }
-                    else ->
                         goToHome()
+                    }
                 }
                 return true
             }
@@ -55,7 +57,7 @@ class EditWorkoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().title = "Edit"
+        requireActivity().title = "Edit Workout"
         requireActivity().addMenuProvider(menuProvider)
 
         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar!!

@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_save"
-        android:icon="@drawable/ic_save"
-        android:title="@string/save"
+        android:id="@+id/action_cancel"
+        android:icon="@drawable/ic_cancel_white"
+        android:title="@string/cancel"
         app:showAsAction="ifRoom"/>
 
 </menu>
