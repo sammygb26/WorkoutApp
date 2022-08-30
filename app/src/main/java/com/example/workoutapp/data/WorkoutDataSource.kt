@@ -23,7 +23,7 @@ object WorkoutDataSource {
                 "Rest now, but try to keep moving."
             ),
         ),
-        mutableListOf(1,2,1,2,1,2,1,2,1,2),
+        mutableListOf(0,1,0,1,0,1,0,1,0,1),
         "Basic workout involving different types of activies."
     )
 }

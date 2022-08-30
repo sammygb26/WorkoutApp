@@ -1,6 +1,7 @@
 package com.example.workoutapp.model.workout
 
 import android.os.CountDownTimer
+import android.util.Half.toFloat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -60,9 +61,13 @@ class WorkoutViewModel : ViewModel() {
             initSection()
     }
 
-    private fun initSection() {
-        val progressFraction = (workoutPosition.toFloat() / workout!!.sections.size.toFloat())
+    private fun updateWorkoutProgress() {
+        val progressFraction = (workoutPosition.toFloat() / workout!!.length.toFloat())
         _workoutProgress.value = (progressFraction * NO_TIMER_SUBDIVISIONS).toInt()
+    }
+
+    private fun initSection() {
+        updateWorkoutProgress()
 
         if (currentSection!!.type == WorkoutSectionType.TIMER) {
             timerFinished.value = false

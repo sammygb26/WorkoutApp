@@ -47,13 +47,13 @@ class EditViewModel : ViewModel(){
         section!!.type = type
     }
 
+    fun setFormatString(formatString: String) {
+        section!!.formatString = formatString
+    }
+
     fun getWorkoutSections() = workout!!.sections
 
     fun saveWorkout() {
         workoutFileSystemManager!!.writeWorkout(workout!!)
-    }
-
-    fun setFormatString(formatString: String) {
-        section!!.formatString = formatString
     }
 }

@@ -48,6 +48,8 @@ class WorkoutTimerFragment : Fragment() {
             countDownUpdate(it)
         }
         sharedViewModel.timerFinished.observe(viewLifecycleOwner, countdownObserver)
+
+        requireActivity().title = sharedViewModel.workoutName
     }
 
     private fun countDownUpdate(timerFinished : Boolean) {
