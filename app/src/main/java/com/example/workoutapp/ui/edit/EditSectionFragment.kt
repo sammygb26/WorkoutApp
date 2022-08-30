@@ -90,6 +90,6 @@ class EditSectionFragment : Fragment(){
     }
 
     fun goToHome() {
-        findNavController().navigate(R.id.action_editSectionFragment_to_editWorkoutFragment)
+        findNavController().navigate(R.id.action_editSectionFragment_to_editWorkoutSectionsFragment)
     }
 }

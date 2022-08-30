@@ -20,9 +20,6 @@
         android:label="fragment_workout_start"
         tools:layout="@layout/fragment_workout_overview" >
         <action
-            android:id="@+id/action_workoutOverviewFragment_to_editWorkoutFragment"
-            app:destination="@id/editWorkoutFragment" />
-        <action
             android:id="@+id/action_workoutOverviewFragment_to_workoutTimerFragment"
             app:destination="@id/workoutTimerFragment" />
         <action
@@ -31,6 +28,9 @@
         <action
             android:id="@+id/action_workoutOverviewFragment_to_startFragment"
             app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_workoutOverviewFragment_to_editWorkoutFragment"
+            app:destination="@id/editWorkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/workoutTimerFragment"
@@ -67,12 +67,29 @@
     <fragment
         android:id="@+id/editWorkoutFragment"
         android:name="com.example.workoutapp.ui.edit.EditWorkoutFragment"
-        android:label="EditWorkoutFragment" >
+        android:label="fragment_edit_workout"
+        tools:layout="@layout/fragment_edit_workout" >
         <action
             android:id="@+id/action_editWorkoutFragment_to_workoutOverviewFragment"
-            app:destination="@id/workoutOverviewFragment" />
+            app:destination="@id/workoutOverviewFragment"
+            app:popUpTo="@id/workoutOverviewFragment"
+            app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_editWorkoutFragment_to_editSectionFragment"
+            android:id="@+id/action_editWorkoutFragment_to_editWorkoutSectionsFragment"
+            app:destination="@id/editWorkoutSectionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWorkoutSectionsFragment"
+        android:name="com.example.workoutapp.ui.edit.EditWorkoutSectionsFragment"
+        android:label="fragment_edit_workout_sections"
+        tools:layout="@layout/fragment_edit_workout_sections" >
+        <action
+            android:id="@+id/action_editWorkoutSectionsFragment_to_editWorkoutFragment"
+            app:destination="@id/editWorkoutFragment"
+            app:popUpTo="@id/editWorkoutFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_editWorkoutSectionsFragment_to_editSectionFragment"
             app:destination="@id/editSectionFragment" />
     </fragment>
     <fragment
@@ -81,9 +98,9 @@
         android:label="fragment_edit_section"
         tools:layout="@layout/fragment_edit_section" >
         <action
-            android:id="@+id/action_editSectionFragment_to_editWorkoutFragment"
-            app:destination="@id/editWorkoutFragment"
-            app:popUpTo="@id/editWorkoutFragment"
+            android:id="@+id/action_editSectionFragment_to_editWorkoutSectionsFragment"
+            app:destination="@id/editWorkoutSectionsFragment"
+            app:popUpTo="@id/editWorkoutSectionsFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

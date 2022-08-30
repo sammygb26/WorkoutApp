@@ -1,7 +1,6 @@
 package com.example.workoutapp.ui.edit
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.databinding.SectionReferenceListItemBinding
@@ -20,12 +19,7 @@ class EditWorkoutAdapter(
         val binding = SectionReferenceListItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
 
-        val section: WorkoutSection = sharedViewModel.workout!!.getSection(position)!!
-        val holder = EditWorkoutViewHolder(binding)
-
-        holder.bind(section)
-
-        return holder
+        return EditWorkoutViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: EditWorkoutViewHolder, position: Int) {

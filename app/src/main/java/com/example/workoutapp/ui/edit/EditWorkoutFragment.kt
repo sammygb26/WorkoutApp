@@ -80,7 +80,7 @@ class EditWorkoutFragment : Fragment() {
     fun addNewSection() {
         val section = WorkoutSection()
         editViewModel.initializeSectionEdit(section)
-        findNavController().navigate(R.id.action_editWorkoutFragment_to_editSectionFragment)
+        findNavController().navigate(R.id.action_editWorkoutFragment_to_editWorkoutSectionsFragment)
     }
 
     override fun onDestroyView() {
