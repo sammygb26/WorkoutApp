@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.workoutapp.R
@@ -37,6 +38,10 @@ class WorkoutOverviewFragment: Fragment() {
 
         requireActivity().title = "Overview"
         workoutViewModel.resetWorkout()
+
+        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar!!
+        supportActionBar.setDisplayShowHomeEnabled(false)
+        supportActionBar.setDisplayHomeAsUpEnabled(false)
     }
 
     override fun onDestroyView() {

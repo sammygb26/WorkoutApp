@@ -1,10 +1,10 @@
 package com.example.workoutapp.ui.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.RadioGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -17,6 +17,7 @@ import java.lang.Exception
 class EditSectionFragment : Fragment(){
     private var _binding: FragmentEditSectionBinding? = null
     private val binding get() = _binding!!
+    private lateinit var menuProvider: MenuProvider
 
     private val sharedViewModel: EditViewModel by activityViewModels()
 
@@ -40,10 +41,26 @@ class EditSectionFragment : Fragment(){
             }
         }
 
+        menuProvider = object : MenuProvider{
+
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.edit_section_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                goToHome()
+                return true
+            }
+        }
+        requireActivity().title = "New Section"
+        requireActivity().addMenuProvider(menuProvider)
+
         updateNumberInputState(currentSelectedType())
     }
 
     override fun onDestroyView() {
+        requireActivity().removeMenuProvider(menuProvider)
+
         super.onDestroyView()
         _binding = null
     }

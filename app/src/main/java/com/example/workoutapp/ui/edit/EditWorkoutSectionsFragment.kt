@@ -1,9 +1,9 @@
 package com.example.workoutapp.ui.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -18,6 +18,7 @@ import com.example.workoutapp.model.workout.WorkoutSection
 class EditWorkoutSectionsFragment : Fragment(){
     private var _binding: FragmentEditWorkoutSectionsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var menuProvider: MenuProvider
 
     private val editViewModel: EditViewModel by activityViewModels()
 
@@ -40,9 +41,26 @@ class EditWorkoutSectionsFragment : Fragment(){
 
         binding.recycleView.adapter = EditWorkoutSectionsAdapter(editViewModel, this)
         binding.recycleView.layoutManager = LinearLayoutManager(context)
+        binding.editWorkoutSectionsFragment = this
+
+        menuProvider = object : MenuProvider {
+
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.edit_workout_sections_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                goToHome()
+                return true
+            }
+        }
+        requireActivity().title = "Sections"
+        requireActivity().addMenuProvider(menuProvider)
     }
 
     override fun onDestroyView() {
+        requireActivity().removeMenuProvider(menuProvider)
+
         super.onDestroyView()
         _binding = null
     }
@@ -50,6 +68,10 @@ class EditWorkoutSectionsFragment : Fragment(){
     fun addSectionToOrder(name: String) {
         editViewModel.appendSectionToOrder(name)
         goToHome()
+    }
+
+    fun addSection() {
+       findNavController().navigate(R.id.action_editWorkoutSectionsFragment_to_editSectionFragment)
     }
 
     fun goToHome() {

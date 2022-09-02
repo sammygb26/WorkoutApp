@@ -31,6 +31,13 @@ class EditWorkoutFragment : Fragment() {
     ): View {
         _binding = FragmentEditWorkoutBinding.inflate(inflater, container, false)
 
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         menuProvider = object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.edit_workout_menu, menu)
@@ -38,7 +45,7 @@ class EditWorkoutFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
-                    R.id.action_cancel -> { //TODO: swap save and cancel actions
+                    R.id.action_cancel -> {
                         goToHome()
                     }
                     else -> {
@@ -50,20 +57,12 @@ class EditWorkoutFragment : Fragment() {
                 return true
             }
         }
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         requireActivity().title = "Edit Workout"
         requireActivity().addMenuProvider(menuProvider)
 
         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar!!
         supportActionBar.setDisplayShowHomeEnabled(true)
         supportActionBar.setDisplayHomeAsUpEnabled(true)
-
 
         binding.recycleView.adapter = EditWorkoutAdapter(editViewModel)
         binding.recycleView.layoutManager = LinearLayoutManager(context)
@@ -86,10 +85,6 @@ class EditWorkoutFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar!!
-        supportActionBar.setDisplayShowHomeEnabled(false)
-        supportActionBar.setDisplayHomeAsUpEnabled(false)
-
         requireActivity().removeMenuProvider(menuProvider)
 
         super.onDestroyView()
