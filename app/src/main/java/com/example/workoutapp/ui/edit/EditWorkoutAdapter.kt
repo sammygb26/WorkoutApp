@@ -23,7 +23,7 @@ class EditWorkoutAdapter(
     }
 
     override fun onBindViewHolder(holder: EditWorkoutViewHolder, position: Int) {
-        val section: WorkoutSection = sharedViewModel.workout!!.getSection(position)!!
+        val section = sharedViewModel.workout!!.getSection(position)!!
         holder.bind(section)
     }
 }

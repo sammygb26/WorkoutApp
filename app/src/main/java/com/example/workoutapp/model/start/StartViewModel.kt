@@ -1,6 +1,8 @@
 package com.example.workoutapp.model.start
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.workoutapp.data.WorkoutDataSource
 import com.example.workoutapp.data.WorkoutFileSystemManager
@@ -25,6 +27,13 @@ class StartViewModel : ViewModel(){
             return getWorkout(name)
         }
         return null
+    }
+
+    fun addWorkout(workout: Workout, context: Context) {
+        val workoutFileSystemManager = WorkoutFileSystemManager(context)
+        workoutFileSystemManager.writeWorkout(workout)
+
+        loadWorkouts(context)
     }
 
     fun loadWorkouts(context: Context) {

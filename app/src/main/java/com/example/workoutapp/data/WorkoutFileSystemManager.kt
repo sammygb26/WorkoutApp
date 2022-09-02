@@ -102,7 +102,7 @@ class WorkoutFileSystemManager(val context: Context) {
     private fun readSectionOrder(parser: XmlPullParser): MutableList<Int> {
         parser.require(XmlPullParser.START_TAG, null, "sectionOrder")
         val orderString = readText(parser).removePrefix("[").removeSuffix("]")
-        val order = orderString.split(",").map {
+        val order = orderString.split(",").filter { it!="" }.map {
             try {
             it.removePrefix(" ").toInt()
             } catch (e: Exception) {

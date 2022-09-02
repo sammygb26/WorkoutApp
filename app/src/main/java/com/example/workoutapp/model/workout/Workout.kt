@@ -10,7 +10,7 @@ data class Workout(
     val length get() = sectionOrder.size
 
     fun getSection(position: Int): WorkoutSection? {
-        if (position > sectionOrder.size - 1|| position < 0)
+        if (position >= sectionOrder.size || position < 0)
             return null
         return sections[sectionOrder[position]]
     }
