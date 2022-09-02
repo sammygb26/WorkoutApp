@@ -33,7 +33,7 @@ class WorkoutOverviewFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             viewModel = workoutViewModel
-            workoutStartFragment = this@WorkoutOverviewFragment
+            workoutOverviewFragment = this@WorkoutOverviewFragment
         }
 
         requireActivity().title = "Overview"
@@ -56,6 +56,10 @@ class WorkoutOverviewFragment: Fragment() {
             null -> return
         }
         findNavController().navigate(nextNavID)
+    }
+
+    fun goToHome() {
+        findNavController().navigate(R.id.action_workoutOverviewFragment_to_startFragment)
     }
 
     fun toEditWorkout() {

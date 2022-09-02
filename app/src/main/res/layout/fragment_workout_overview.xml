@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.workout.WorkoutOverviewFragment">
 
     <data>
+
         <variable
-            name="workoutStartFragment"
+            name="workoutOverviewFragment"
             type="com.example.workoutapp.ui.workout.WorkoutOverviewFragment" />
+
         <variable
             name="viewModel"
             type="com.example.workoutapp.model.workout.WorkoutViewModel" />
@@ -20,52 +21,53 @@
 
 
         <ImageButton
-            android:src="@drawable/ic_edit"
-            android:contentDescription="@string/edit"
-            android:onClick="@{() -> workoutStartFragment.toEditWorkout()}"
-            app:tint="?attr/colorOnBackground"
+            android:layout_width="@dimen/top_left_icon_size"
+            android:layout_height="@dimen/top_left_icon_size"
             android:layout_margin="@dimen/top_left_icon_margin"
             android:background="@null"
             android:color="@color/dark_gray"
-            android:layout_width="@dimen/top_left_icon_size"
-            android:layout_height="@dimen/top_left_icon_size"
+            android:contentDescription="@string/edit"
+            android:onClick="@{() -> workoutOverviewFragment.toEditWorkout()}"
+            android:src="@drawable/ic_edit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground" />
 
         <TextView
-            android:text="@{viewModel.workoutName}"
-            android:layout_marginTop="@dimen/name_top_margin"
+            style="?attr/textAppearanceHeadline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/name_top_margin"
             android:gravity="center_horizontal"
-            style="?attr/textAppearanceHeadline4"
-            tools:text="Workout Title"
-            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{viewModel.workoutName}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Workout Title" />
 
 
         <Button
             android:id="@+id/back_button"
-            android:text="@string/back"
-            android:layout_margin="@dimen/bottom_navigation_margin"
+            android:onClick="@{() -> workoutOverviewFragment.goToHome()}"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            android:text="@string/back"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/startButton"/>
+            app:layout_constraintEnd_toStartOf="@id/startButton"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:text="@string/start"
             android:id="@+id/startButton"
-            android:onClick="@{() -> workoutStartFragment.toNextSection()}"
-            android:layout_margin="@dimen/bottom_navigation_margin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/back_button"
+            android:layout_margin="@dimen/bottom_navigation_margin"
+            android:onClick="@{() -> workoutOverviewFragment.toNextSection()}"
+            android:text="@string/start"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toEndOf="@id/back_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
