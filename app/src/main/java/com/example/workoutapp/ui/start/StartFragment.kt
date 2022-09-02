@@ -2,21 +2,23 @@ package com.example.workoutapp.ui.start
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentStartBinding
-import com.example.workoutapp.model.edit.EditViewModel
 import com.example.workoutapp.model.start.StartViewModel
 import com.example.workoutapp.model.workout.Workout
 import com.example.workoutapp.model.workout.WorkoutViewModel
+import com.example.workoutapp.ui.edit.EditWorkoutSheet
 
 
 class StartFragment : Fragment() {
     private var _binding: FragmentStartBinding? = null
     private val binding: FragmentStartBinding get() = _binding!!
+    private lateinit var menuProvider : MenuProvider
 
     private val workoutViewModel : WorkoutViewModel by activityViewModels()
     private val startViewModel : StartViewModel by activityViewModels()
@@ -41,9 +43,30 @@ class StartFragment : Fragment() {
             recycleView.adapter = StartWorkoutListAdapter(startViewModel, this@StartFragment)
             recycleView.layoutManager = LinearLayoutManager(context)
         }
+
+        menuProvider = object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.start_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                val id = menuItem.itemId
+                when (id) {
+                    R.id.action_add -> launchNewWorkoutSheet()
+                }
+                return true
+            }
+        }
+        requireActivity().addMenuProvider(menuProvider)
+    }
+
+    private fun launchNewWorkoutSheet() {
+        val editWorkoutSheet = EditWorkoutSheet()
+        editWorkoutSheet.show(requireActivity().supportFragmentManager, EditWorkoutSheet.TAG)
     }
 
     override fun onDestroyView() {
+        requireActivity().removeMenuProvider(menuProvider)
         super.onDestroyView()
         _binding = null
     }
