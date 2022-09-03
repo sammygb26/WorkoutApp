@@ -64,4 +64,8 @@ class EditViewModel : ViewModel(){
     fun saveWorkout() {
         workoutFileSystemManager!!.writeWorkout(workout!!)
     }
+
+    fun removeReference(position: Int) {
+        workout!!.sectionOrder.removeAt(position)
+    }
 }

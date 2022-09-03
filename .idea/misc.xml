@@ -8,14 +8,14 @@
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/drawable/ic_cancel_white.xml" value="0.1175" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/create_workout_sheet.xml" value="0.6296296296296297" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_section.xml" value="0.7152777777777778" />
-        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_workout.xml" value="0.1" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_workout.xml" value="0.8" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_edit_workout_sections.xml" value="0.8" />
-        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_start.xml" value="0.14270833333333333" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_start.xml" value="0.6" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/fragment_workout_overview.xml" value="0.8" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/section_list_item.xml" value="0.7875" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/section_reference_list_item.xml" value="1.3287037037037037" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/sheet_create_workout.xml" value="0.9083333333333333" />
-        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/sheet_edit_workout.xml" value="0.7569444444444444" />
+        <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/layout/sheet_edit_workout.xml" value="0.8" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/menu/edit_section_menu.xml" value="0.38333333333333336" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/menu/edit_workout_menu.xml" value="0.72" />
         <entry key="..\:/Users/Sam/AndroidStudioProjects/WorkoutApp/app/src/main/res/menu/edit_workout_sections_menu.xml" value="0.38333333333333336" />

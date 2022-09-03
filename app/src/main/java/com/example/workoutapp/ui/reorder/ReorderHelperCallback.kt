@@ -3,13 +3,13 @@ package com.example.workoutapp.ui.reorder
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 
-class ReorderHelperCallback(val adapter: ReorderHelperAdapter) : ItemTouchHelper.Callback(){
+class ReorderHelperCallback(private val adapter: ReorderHelperAdapter) : ItemTouchHelper.Callback(){
     override fun getMovementFlags(
         recyclerView: RecyclerView,
         viewHolder: RecyclerView.ViewHolder
     ): Int {
         val dragFlags = ItemTouchHelper.UP or ItemTouchHelper.DOWN
-        val swipeFlags = 0
+        val swipeFlags = ItemTouchHelper.RIGHT
         return makeMovementFlags(dragFlags, swipeFlags)
     }
 
@@ -30,6 +30,9 @@ class ReorderHelperCallback(val adapter: ReorderHelperAdapter) : ItemTouchHelper
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        TODO("Not yet implemented")
+        adapter.onItemSwipe(
+            viewHolder.adapterPosition,
+            direction
+        )
     }
 }

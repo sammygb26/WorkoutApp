@@ -40,26 +40,28 @@
                     android:layout_margin="16dp"
                     android:autofillHints="Name of the workout."
                     android:hint="@string/name"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/description_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:hint="@string/description"
                     android:autofillHints="Description of your workout."
-                    android:inputType="textMultiLine" />
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp" />
 
 
                 <Button
                     android:id="@+id/addButton"
-                    android:onClick="@{() -> editWorkoutSheet.addWorkout()}"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_margin="@dimen/bottom_navigation_margin"
+                    android:onClick="@{() -> editWorkoutSheet.addWorkout()}"
                     android:text="@string/add" />
             </LinearLayout>
 

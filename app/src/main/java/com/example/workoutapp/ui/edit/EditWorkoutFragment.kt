@@ -30,8 +30,6 @@ class EditWorkoutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditWorkoutBinding.inflate(inflater, container, false)
-
-
         return binding.root
     }
 
@@ -64,12 +62,15 @@ class EditWorkoutFragment : Fragment() {
         supportActionBar.setDisplayShowHomeEnabled(true)
         supportActionBar.setDisplayHomeAsUpEnabled(true)
 
-        binding.recycleView.adapter = EditWorkoutAdapter(editViewModel)
-        binding.recycleView.layoutManager = LinearLayoutManager(context)
-        binding.editWorkoutFragment = this
+        val adapter = EditWorkoutAdapter(editViewModel)
 
+        binding.apply {
+            recycleView.adapter = adapter
+            recycleView.layoutManager = LinearLayoutManager(context)
+            editWorkoutFragment = this@EditWorkoutFragment
+        }
         ItemTouchHelper(ReorderHelperCallback(
-            EditWorkoutReorderHelperCallback(editViewModel)
+            EditWorkoutReorderHelperCallback(editViewModel, adapter)
         ))
             .attachToRecyclerView(binding.recycleView)
     }
