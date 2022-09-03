@@ -77,4 +77,9 @@ class EditWorkoutSectionsFragment : Fragment(){
     fun goToHome() {
         findNavController().navigate(R.id.action_editWorkoutSectionsFragment_to_editWorkoutFragment)
     }
+
+    fun removeSection(section: WorkoutSection) {
+        val position = editViewModel.removeSection(section)
+        binding.recycleView.adapter!!.notifyItemRemoved(position)
+    }
 }

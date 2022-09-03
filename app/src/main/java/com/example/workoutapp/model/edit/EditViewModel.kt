@@ -11,7 +11,7 @@ import com.example.workoutapp.model.workout.WorkoutSectionType
 class EditViewModel : ViewModel(){
 
     private var workoutFileSystemManager : WorkoutFileSystemManager? = null
-    var workout : Workout? = null
+    var workout : Workout?  = null
     var section : WorkoutSection? = null
 
     fun initializeWorkoutEdit(context: Context, workoutName: String) {
@@ -67,5 +67,16 @@ class EditViewModel : ViewModel(){
 
     fun removeReference(position: Int) {
         workout!!.sectionOrder.removeAt(position)
+    }
+
+    fun removeSection(section: WorkoutSection): Int {
+        val position = workout!!.sections.indexOf(section)
+        workout!!.sections.removeAt(position)
+        workout!!.sectionOrder = workout!!.sectionOrder.filter {
+            it!=position
+        }.map {
+            if (it < position) it else it - 1
+        } as MutableList<Int>
+        return position
     }
 }

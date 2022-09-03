@@ -22,4 +22,7 @@
     <string name="description">Description</string>
     <string name="format_string">Format String</string>
     <string name="new_workout">New Workout</string>
+    <string name="section_type_icon">Section type icon.</string>
+    <string name="delete_section_button">Delete section button.</string>
+    <string name="delete_section_check_message">Are you sre you want to delete this section?</string>
 </resources>
