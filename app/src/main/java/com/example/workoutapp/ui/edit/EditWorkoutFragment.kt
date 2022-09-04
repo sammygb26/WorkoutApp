@@ -1,7 +1,10 @@
 package com.example.workoutapp.ui.edit
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.*
+import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -9,17 +12,20 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.R
 import com.example.workoutapp.databinding.FragmentEditWorkoutBinding
 import com.example.workoutapp.model.edit.EditViewModel
-import com.example.workoutapp.model.workout.WorkoutSection
 import com.example.workoutapp.model.workout.WorkoutViewModel
+import com.example.workoutapp.ui.edit.dialog.EditWorkoutDialogAdapter
 import com.example.workoutapp.ui.reorder.ReorderHelperCallback
 
 class EditWorkoutFragment : Fragment() {
     private var _binding: FragmentEditWorkoutBinding? = null
     private val binding get() = _binding!!
     private lateinit var menuProvider: MenuProvider
+
+    private var dialog : Dialog? = null
 
     private val editViewModel: EditViewModel by activityViewModels()
     private val workoutViewModel: WorkoutViewModel by activityViewModels()
@@ -67,8 +73,9 @@ class EditWorkoutFragment : Fragment() {
         binding.apply {
             recycleView.adapter = adapter
             recycleView.layoutManager = LinearLayoutManager(context)
-            editWorkoutFragment = this@EditWorkoutFragment
         }
+        binding.editWorkoutFragment = this
+
         ItemTouchHelper(ReorderHelperCallback(
             EditWorkoutReorderHelperCallback(editViewModel, adapter)
         ))
@@ -79,11 +86,31 @@ class EditWorkoutFragment : Fragment() {
         findNavController().navigate(R.id.action_editWorkoutFragment_to_workoutOverviewFragment)
     }
 
-    fun addNewSection() {
-        val section = WorkoutSection()
-        editViewModel.initializeSectionEdit(section)
-        findNavController().navigate(R.id.action_editWorkoutFragment_to_editWorkoutSectionsFragment)
+    fun openNewSectionReferenceDialog() {
+        dialog = Dialog(requireContext())
+
+        dialog!!.setContentView(R.layout.dialog_section_list)
+        dialog!!.setCancelable(true)
+
+        val recyclerView = dialog!!.findViewById<RecyclerView>(R.id.recycleView)!!
+        recyclerView.adapter = EditWorkoutDialogAdapter(editViewModel, this)
+        recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
+
+        dialog!!.findViewById<Button>(R.id.cancelButton).setOnClickListener {
+            dialog!!.dismiss()
+        }
+
+        dialog!!.show()
     }
+
+    fun addSectionReference(sectionIndex: Int) {
+        editViewModel.workout!!.sectionOrder.add(sectionIndex)
+        binding.recycleView.adapter!!.notifyItemInserted(editViewModel.workout!!.sectionOrder.size - 1)
+
+        if (dialog != null)
+            dialog!!.dismiss()
+    }
+
 
     override fun onDestroyView() {
         requireActivity().removeMenuProvider(menuProvider)

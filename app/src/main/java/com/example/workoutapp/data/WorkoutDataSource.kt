@@ -22,6 +22,76 @@ object WorkoutDataSource {
                 "",
                 "Rest now, but try to keep moving."
             ),
+            WorkoutSection(
+                "Push-ups",
+                WorkoutSectionType.CHECK,
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
+            ),
+            WorkoutSection(
+                "Rest",
+                WorkoutSectionType.TIMER,
+                60,
+                "",
+                "Rest now, but try to keep moving."
+            ),
+            WorkoutSection(
+                "Push-ups",
+                WorkoutSectionType.CHECK,
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
+            ),
+            WorkoutSection(
+                "Rest",
+                WorkoutSectionType.TIMER,
+                60,
+                "",
+                "Rest now, but try to keep moving."
+            ),
+            WorkoutSection(
+                "Push-ups",
+                WorkoutSectionType.CHECK,
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
+            ),
+            WorkoutSection(
+                "Rest",
+                WorkoutSectionType.TIMER,
+                60,
+                "",
+                "Rest now, but try to keep moving."
+            ),
+            WorkoutSection(
+                "Push-ups",
+                WorkoutSectionType.CHECK,
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
+            ),
+            WorkoutSection(
+                "Rest",
+                WorkoutSectionType.TIMER,
+                60,
+                "",
+                "Rest now, but try to keep moving."
+            ),
+            WorkoutSection(
+                "Push-ups",
+                WorkoutSectionType.CHECK,
+                10,
+                "%s push-ups",
+                "Try to keep the pace up and not stop between push-ups."
+            ),
+            WorkoutSection(
+                "Rest",
+                WorkoutSectionType.TIMER,
+                60,
+                "",
+                "Rest now, but try to keep moving."
+            ),
         ),
         mutableListOf(0,1,0,1,0,1,0,1,0,1),
         "Basic workout involving different types of activies."

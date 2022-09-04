@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.databinding.SectionReferenceListItemBinding
 import com.example.workoutapp.model.edit.EditViewModel
-import com.example.workoutapp.model.workout.WorkoutSection
 
 class EditWorkoutAdapter(
     private val sharedViewModel: EditViewModel
