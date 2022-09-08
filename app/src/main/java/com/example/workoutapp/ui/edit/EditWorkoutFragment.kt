@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Button
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -52,6 +51,9 @@ class EditWorkoutFragment : Fragment() {
                     R.id.action_cancel -> {
                         goToHome()
                     }
+                    R.id.action_edit -> {
+                        goToEditSections()
+                    }
                     else -> {
                         editViewModel.saveWorkout()
                         workoutViewModel.startWorkout(editViewModel.workout!!)
@@ -86,11 +88,26 @@ class EditWorkoutFragment : Fragment() {
         findNavController().navigate(R.id.action_editWorkoutFragment_to_workoutOverviewFragment)
     }
 
+    private fun goToEditSections() {
+        findNavController().navigate(R.id.action_editWorkoutFragment_to_editWorkoutSectionsFragment)
+    }
+
     fun openNewSectionReferenceDialog() {
+        if (editViewModel.workout!!.sections.isEmpty()) {
+            goToEditSections()
+            return
+        }
+
+
         dialog = Dialog(requireContext())
+
 
         dialog!!.setContentView(R.layout.dialog_section_list)
         dialog!!.setCancelable(true)
+
+        val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
+        val height = (resources.displayMetrics.heightPixels * 0.90).toInt()
+        dialog!!.window!!.setLayout(width, height)
 
         val recyclerView = dialog!!.findViewById<RecyclerView>(R.id.recycleView)!!
         recyclerView.adapter = EditWorkoutDialogAdapter(editViewModel, this)
@@ -112,8 +129,12 @@ class EditWorkoutFragment : Fragment() {
     }
 
 
+
     override fun onDestroyView() {
         requireActivity().removeMenuProvider(menuProvider)
+
+        if (dialog != null)
+            dialog!!.dismiss()
 
         super.onDestroyView()
         _binding = null

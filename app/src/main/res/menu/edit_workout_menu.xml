@@ -4,9 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_edit_white"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/action_cancel"
         android:icon="@drawable/ic_cancel_white"
         android:title="@string/cancel"
         app:showAsAction="ifRoom"/>
+
 
 </menu>

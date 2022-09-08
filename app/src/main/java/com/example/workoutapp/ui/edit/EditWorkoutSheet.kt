@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.workoutapp.databinding.SheetEditWorkoutBinding
+import com.example.workoutapp.databinding.SheetAddWorkoutBinding
 import com.example.workoutapp.model.start.StartViewModel
 import com.example.workoutapp.model.workout.Workout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class EditWorkoutSheet : BottomSheetDialogFragment(){
 
-    private var _binding: SheetEditWorkoutBinding? = null
+    private var _binding: SheetAddWorkoutBinding? = null
     private val binding get() = _binding!!
 
     private val sharedViewModel: StartViewModel by activityViewModels()
@@ -22,7 +22,7 @@ class EditWorkoutSheet : BottomSheetDialogFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = SheetEditWorkoutBinding.inflate(inflater, container, false)
+        _binding = SheetAddWorkoutBinding.inflate(inflater, container, false)
 
         return binding.root
     }

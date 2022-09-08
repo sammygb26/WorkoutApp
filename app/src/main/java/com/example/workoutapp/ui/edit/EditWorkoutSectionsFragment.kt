@@ -26,7 +26,7 @@ class EditWorkoutSectionsFragment : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentEditWorkoutSectionsBinding.inflate(
             inflater,
             container,
@@ -50,7 +50,10 @@ class EditWorkoutSectionsFragment : Fragment(){
             }
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                goToHome()
+                when(menuItem.itemId) {
+                    R.id.action_add -> addSection()
+                    else -> goToHome()
+                }
                 return true
             }
         }
