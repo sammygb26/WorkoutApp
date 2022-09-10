@@ -1,6 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.edit.">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/name_top_margin"
+                    android:hint="@string/name"
+                    android:inputType="text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioGroup
+                    android:id="@+id/typeRadioGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@id/nameEditText"
+                    app:layout_constraintStart_toStartOf="@id/nameEditText"
+                    app:layout_constraintTop_toBottomOf="@id/nameEditText">
+
+                    <RadioButton
+                        android:id="@+id/checkRadioButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/check" />
+
+                    <RadioButton
+                        android:id="@+id/timerRadioButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/timer" />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/minutesEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="Number of minutes for a timer"
+                    android:hint="@string/minutes"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="@id/nameEditText"
+                    app:layout_constraintTop_toBottomOf="@id/typeRadioGroup" />
+
+                <EditText
+                    android:id="@+id/countEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="Count for the workout in question"
+                    android:hint="@string/count"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="@id/nameEditText"
+                    app:layout_constraintTop_toBottomOf="@id/minutesEditText" />
+
+                <EditText
+                    android:id="@+id/formatStringEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="Add a number format string (anywhere you want the number add %s)."
+                    android:hint="@string/format_string"
+                    android:inputType="text"
+                    app:layout_constraintEnd_toEndOf="@id/nameEditText"
+                    app:layout_constraintStart_toStartOf="@+id/countEditText"
+                    app:layout_constraintTop_toBottomOf="@id/countEditText" />
+
+                <EditText
+                    android:id="@+id/descriptionEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:autofillHints="Description of the workout section."
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    app:layout_constraintEnd_toEndOf="@id/nameEditText"
+                    app:layout_constraintStart_toStartOf="@+id/countEditText"
+                    app:layout_constraintTop_toBottomOf="@id/formatStringEditText" />
+
+                <Button
+                    android:id="@+id/cancelButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="@dimen/bottom_navigation_margin"
+                    android:text="@string/cancel"
+                    app:layout_constraintEnd_toStartOf="@id/addButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionEditText"
+                    app:layout_constraintVertical_bias="1" />
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="@dimen/bottom_navigation_margin"
+                    android:text="@string/add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cancelButton"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionEditText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

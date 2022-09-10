@@ -12,8 +12,7 @@ import com.example.workoutapp.databinding.FragmentStartBinding
 import com.example.workoutapp.model.start.StartViewModel
 import com.example.workoutapp.model.workout.Workout
 import com.example.workoutapp.model.workout.WorkoutViewModel
-import com.example.workoutapp.ui.edit.EditWorkoutSheet
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.example.workoutapp.ui.edit.AddWorkoutSheet
 
 
 class StartFragment : Fragment() {
@@ -53,7 +52,7 @@ class StartFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 val id = menuItem.itemId
                 when (id) {
-                    R.id.action_add -> launchNewWorkoutSheet()
+                    R.id.action_add -> launchAddWorkoutSheet()
                 }
                 return true
             }
@@ -61,9 +60,9 @@ class StartFragment : Fragment() {
         requireActivity().addMenuProvider(menuProvider)
     }
 
-    private fun launchNewWorkoutSheet() {
-        val editWorkoutSheet = EditWorkoutSheet()
-        editWorkoutSheet.show(requireActivity().supportFragmentManager, EditWorkoutSheet.TAG)
+    private fun launchAddWorkoutSheet() {
+        val addWorkoutSheet = AddWorkoutSheet()
+        addWorkoutSheet.show(requireActivity().supportFragmentManager, AddWorkoutSheet.TAG)
     }
 
     override fun onDestroyView() {

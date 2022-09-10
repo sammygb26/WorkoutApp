@@ -2,15 +2,12 @@ package com.example.workoutapp.ui.edit
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutapp.R
-import com.example.workoutapp.databinding.FragmentEditSectionBinding
 import com.example.workoutapp.databinding.FragmentEditWorkoutSectionsBinding
 import com.example.workoutapp.model.edit.EditViewModel
 import com.example.workoutapp.model.workout.WorkoutSection
@@ -51,7 +48,7 @@ class EditWorkoutSectionsFragment : Fragment(){
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when(menuItem.itemId) {
-                    R.id.action_add -> addSection()
+                    R.id.action_add -> launchAddSectionSheet()
                     else -> goToHome()
                 }
                 return true
@@ -73,8 +70,9 @@ class EditWorkoutSectionsFragment : Fragment(){
         goToHome()
     }
 
-    fun addSection() {
-       findNavController().navigate(R.id.action_editWorkoutSectionsFragment_to_editSectionFragment)
+    fun launchAddSectionSheet() {
+        val addSectionSheet = AddSectionSheet()
+        addSectionSheet.show(requireActivity().supportFragmentManager, AddSectionSheet.TAG)
     }
 
     fun goToHome() {

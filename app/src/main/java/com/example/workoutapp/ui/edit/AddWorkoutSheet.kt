@@ -10,7 +10,7 @@ import com.example.workoutapp.model.start.StartViewModel
 import com.example.workoutapp.model.workout.Workout
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class EditWorkoutSheet : BottomSheetDialogFragment(){
+class AddWorkoutSheet : BottomSheetDialogFragment(){
 
     private var _binding: SheetAddWorkoutBinding? = null
     private val binding get() = _binding!!
@@ -31,7 +31,7 @@ class EditWorkoutSheet : BottomSheetDialogFragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            editWorkoutSheet = this@EditWorkoutSheet
+            editWorkoutSheet = this@AddWorkoutSheet
         }
     }
 
@@ -51,6 +51,6 @@ class EditWorkoutSheet : BottomSheetDialogFragment(){
     }
 
     companion object {
-        const val TAG = "EditWorkoutSheet"
+        const val TAG = "AddWorkoutSheet"
     }
 }

@@ -19,20 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <ImageButton
-            android:layout_width="@dimen/top_left_icon_size"
-            android:layout_height="@dimen/top_left_icon_size"
-            android:layout_margin="@dimen/top_left_icon_margin"
-            android:background="@null"
-            android:color="@color/dark_gray"
-            android:contentDescription="@string/edit"
-            android:onClick="@{() -> workoutOverviewFragment.toEditWorkout()}"
-            android:src="@drawable/ic_edit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorOnBackground" />
-
         <TextView
             style="?attr/textAppearanceHeadline4"
             android:layout_width="wrap_content"
